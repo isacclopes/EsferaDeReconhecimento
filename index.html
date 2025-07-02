@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./Ficheiro_Archer Daniels Midland logo (2) 2.png" type="image/x-icon" />
+  <title>Reconhecimento ADM</title>
+  <style>
+    * { box-sizing: border-box; }
+    body, html {
+      margin: 0; padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100%; overflow-x: hidden;
+    }
+    #bg-video {
+      position: fixed; top: 0; left: 0;
+      min-width: 100%; min-height: 100%;
+      z-index: -1; object-fit: cover;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white; padding: 30px;
+      border-radius: 12px; max-width: 600px;
+      margin: 60px auto;
+    }
+    .container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input, select, textarea {
+      width: 100%; padding: 12px;
+      margin-bottom: 12px;
+      border: none; border-radius: 4px;
+      font-size: 1rem;
+    }
+    textarea { resize: vertical; }
+    button {
+      background-color: #4CAF50;
+      color: white; padding: 12px;
+      border: none; border-radius: 4px;
+      font-size: 1rem; cursor: pointer;
+      width: 100%; margin-bottom: 10px;
+    }
+    button:hover { background-color: #45a049; }
+    .termos-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px; border-radius: 8px;
+      font-size: 0.95rem;
+    }
+    label input[type="checkbox"] { margin-right: 8px; }
+    #termos { display: none; }
+    @media (max-width: 480px) {
+      .container { margin: 20px; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay muted loop id="bg-video">
+    <source src="./BackgroundVideo.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo em background.
+  </video>
+
+  <div class="container">
+    <h1>Solicitação de Reconhecimento</h1>
+    <form id="formularioReconhecimento" action="https://formsubmit.co/isacc.lopessantos@adm.com" method="POST">
+      
+      <!-- Redireciona para página de obrigado após envio -->
+      <input type="hidden" name="_next" value="https://seusite.com.br/obrigado.html" />
+      <!-- Desativa captcha para facilitar -->
+      <input type="hidden" name="_captcha" value="false" />
+      
+      <input type="text" name="reconhecido" placeholder="Nome do Reconhecido" required>
+      <input type="text" name="setor_reconhecido" placeholder="Setor do Reconhecido">
+      <input type="text" name="reconhecedor" placeholder="Nome do Reconhecedor" required>
+      <input type="text" name="setor_reconhecedor" placeholder="Setor do Reconhecedor">
+      <select name="reconhecimento_previo">
+        <option value="Não">Reconhecimento prévio?</option>
+        <option value="Não">Não</option>
+        <option value="Sim - mês passado">Sim - mês passado</option>
+        <option value="Sim - ano anterior">Sim - ano anterior</option>
+      </select>
+      <input type="date" name="data">
+      <input type="text" name="pilar" placeholder="Pilar/Subcomitê/Competência">
+      <select name="categoria" required>
+        <option disabled selected>Categoria</option>
+        <option value="Qualidade">Qualidade - Excelência e Foco no Cliente</option>
+        <option value="Segurança">Segurança - Cuidado Genuíno e Prevenção</option>
+        <option value="Meio Ambiente">Meio Ambiente - Responsabilidade Ambiental e Eficiência</option>
+        <option value="Eficiência">Eficiência Operacional - Otimização e Redução de Custos</option>
+      </select>
+      <textarea name="descricao" placeholder="Descreva a Iniciativa do Reconhecido" required></textarea>
+
+      <!-- botão inicial -->
+      <button type="button" onclick="mostrarTermos()">Próximo</button>
+
+      <!-- termos e botão de envio -->
+      <div id="termos">
+        <label>
+          <input type="checkbox" id="aceito" required>
+          Li e concordo com os critérios abaixo:
+        </label>
+        <div class="termos-box">
+          <h2>Critérios de Avaliação das Categorias</h2>
+          <p><strong>Qualidade:</strong>  Atendimento eficiente ao cliente interno – Suporte ágil e eficaz às áreas da empresa.
+Compromisso com a qualidade do produto – Garantia de que os padrões de qualidade sejam mantidos, com o preenchimento correto das informações e rapidez na resolução de problemas críticos. 
+Iniciativa para melhorias que agreguem valor ao processo e ao cliente.
+Promoção da segurança e boas práticas – Contribuição para processos mais seguros e eficientes.</p>
+          <p><strong>Segurança:</strong>
+Ações relacionadas a LCS- Procedimentos de bloqueio e etiquetagem durante a manutenção de máquinas, ajudando a evitar acidentes.
+Cuidado genuíno com os colegas- Atitude proativa para proteger e apoiar a segurança dos colegas.
+Comportamento seguro e preventivo- São ações e atitudes pessoais que minimizam riscos no ambiente de trabalho, como seguir procedimentos de segurança, usar EPIs corretamente, comunicar situações de perigo e evitar comportamentos que possam comprometer a segurança.
+Promoção da cultura de segurança- Consiste na criação e fortalecimento de hábitos e valores voltados à segurança dentro da organização. Isso pode ser feito por meio de treinamentos, campanhas, diálogos diários de segurança (DDS) e reconhecimento de boas práticas
+Programa Relatar e Auditorias- Identificação e correção de riscos por meio de relatos e inspeções.</p>
+          <p><strong>Meio Ambiente:</strong> Uso Eficiente de Recursos Naturais- Redução do consumo de água, energia e matéria-prima/ Reaproveitamento de insumos no processo.
+Redução de Desperdícios no Processo -Minimização de perdas de materiais e insumos/ Melhoria na eficiência produtiva.
+Iniciativas Sustentáveis -Ações inovadoras para reduzir impactos ambientais/ Participação em projetos de sustentabilidade.
+Promoção da Cultura de Sustentabilidade- Multiplicação de boas práticas ambientais/Incentivo à conscientização e treinamentos.</p>
+          <p><strong>Eficiência Operacional:</strong>Redução de custos sem perda de qualidade- Otimizar recursos, diminuindo gastos sem comprometer a eficiência.
+Melhoria na logística interna- Aperfeiçoar fluxos e processos para maior organização e agilidade.
+Automação e digitalização de processos - Implementar tecnologias para tornar as atividades mais rápidas e precisas.
+Agilidade na tomada de decisões - Resolver problemas de forma rápida e assertiva.</p>
+        </div>
+        <button type="submit">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function mostrarTermos() {
+      const termos = document.getElementById('termos');
+      termos.style.display = 'block';
+      window.scrollTo({ top: termos.offsetTop - 50, behavior: 'smooth' });
+    }
+
+    document.getElementById("formularioReconhecimento").addEventListener("submit", function(e) {
+      const checkbox = document.getElementById('aceito');
+      if (!checkbox.checked) {
+        e.preventDefault();
+        alert("Você precisa aceitar os critérios antes de enviar.");
+      }
+    });
+  </script>
+
+</body>
+</html>
